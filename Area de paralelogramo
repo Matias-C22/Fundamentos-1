@@ -1,0 +1,25 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //declarar variables
+    float Area,Base,Altura;
+    //entrada
+    cout<<"ingrese la base del paralelogramo: ";
+    cin>>Base;
+    cout<<"ingrese la altura del paralelogramo: ";
+    cin>>Altura;
+    //proceso
+    Area=Base*Altura;
+    cout<<"el area del paralelogramo es: "<<Area;
+    return 0;
+}
