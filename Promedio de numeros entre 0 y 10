@@ -1,0 +1,41 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float n1,n2,n3,prom;
+    
+    
+    cout<<"Ingresar el primer numero"<<endl;
+    cin>>n1;
+    if(n1>=0 && n1<=10){
+        cout<<"Ingresar el segundo numero"<<endl;
+        cin>>n2;
+        if(n2>=0 && n2<=10){
+            cout<<"Ingresar el tercer numero"<<endl;
+            cin>>n3;
+            if(n3<=10 && n3>=0){
+                prom = (n1+n2+n3)/3.0;
+                cout<<"El promedio es: "<<prom;
+            }
+            else
+            cout<<"Error: ingresar un numero entre 0 y 10";
+        }
+        else
+        cout<<"Error: ingresar un numero entre 0 y 10";
+    }
+    else
+    cout<<"Error: ingresar un numero entre 0 y 10";
+    
+    return 0;
+}
