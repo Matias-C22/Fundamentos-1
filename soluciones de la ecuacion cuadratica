@@ -1,0 +1,42 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float a,b,c,d,x,x1,x2;
+    
+    cout<<"Ingresar los valores de las variables "<<endl;
+    cout<<"Valor de la variable a: ";
+    cin>>a;
+    if (a==0)
+        cout<<"No tiene solucion";
+    else{
+        cout<<"Valor de la variable b: ";
+        cin>>b;
+        cout<<"Valor de la variable c: ";
+        cin>>c;
+        
+        d=pow(b,2)-(4*a*c);
+
+        if (d==0){
+            x= -b/(2*a);
+            cout<<"La solucion es unica: "<<x;
+            }
+            else{
+                if(d>0){
+                x1=(-b+(sqrt(d)))/(2*a);
+                x2=(-b-(sqrt(d)))/(2*a);
+                cout<<"Las raices reales son "<<x1<<" y "<<x2;
+                }
+                else{
+                    if(d<0){
+                        x1=-b/(2*a);
+                        x2=sqrt(-d)/(2*a);
+                        cout<<"Las raices imaginarias son: "<<x1<<" + "<<x2<<" i"<<" y "<<x1<<" - "<<x2<<" i";
+                    }
+                }
+            }
+        }
+}
