@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    int prom=0,x;
+    
+    
+    cout<<"Por favor ingrese el pirmer valor: ";
+    cin>>x;
+    prom=x;
+    cout<<"Por favor ingrese el segundo valor: ";
+    cin>>x;
+    prom=prom+x;
+    cout<<"Por favor ingrese el tercer valor: ";
+    cin>>x;
+    prom=prom+x;
+    cout<<"Por favor ingrese el cuarto valor: ";
+    cin>>x;
+    prom=prom+x;
+    cout<<"Por favor ingrese el quinto valor: ";
+    cin>>x;
+    prom=(prom+x)/5;
+    
+    cout<<"El promedio de los 5 numeros es: "<<prom;
+    
+    
+    return 0;
+}
