@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float r,c,a, pi=3.14;
+    
+    
+    cout<<"Por favor ingrese el radio"<<endl;
+    cin>>r;
+    
+    if(r>0){
+        c=pi*r*2;
+        cout<<"El perimetro de la circumferencia es: "<<c<<endl;
+        a=pi*pow(r,2);
+        cout<<"El aera de la circumferencia es: "<<a<<endl;
+    }
+    else{
+        cout<<"Por favor ingrse un valor valido para el radio";
+    }
+    
+    return 0;
+}
