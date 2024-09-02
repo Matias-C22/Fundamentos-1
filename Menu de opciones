@@ -1,0 +1,104 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    //declarar las variables
+    int opcion,x,prom,hs=0, hq=0, pf=0, g=0,n,suma=0,contador=1;
+    float total;
+    
+    do {
+        cout<<"MENU"<<endl;
+        cout<<"===="<<endl;
+        cout<<"1. Promedio entre 5 numeros enteros"<<endl;
+        cout<<"2. Precio de lo consumido en una hamburgueseria"<<endl;
+        cout<<"3. Suma de numeros impares hasta el numero dado"<<endl;
+        cout<<"0. Salir"<<endl;
+        //se pide una de las opciones
+        cout<<"ingrese la opcion que desea: "<<endl;
+        cin>>opcion;
+        //se realizan las instrucciones dependiendo de la variable opcion
+        switch (opcion){
+            case 1: //colocar las instrucciones que correspondes a la primera opcion
+    
+                cout<<"Por favor ingrese el pirmer valor: ";
+                cin>>x;
+                prom=x;
+                cout<<"Por favor ingrese el segundo valor: ";
+                cin>>x;
+                prom += x;
+                cout<<"Por favor ingrese el tercer valor: ";
+                cin>>x;
+                prom += x;
+                cout<<"Por favor ingrese el cuarto valor: ";
+                cin>>x;
+                prom += x;
+                cout<<"Por favor ingrese el quinto valor: ";
+                cin>>x;
+                prom=(prom+x)/5;
+                
+                cout<<"El promedio de los 5 numeros es: "<<prom<<endl;
+                
+                break;
+                
+            case 2:
+                cout<<"Por favor, ingrese la cantidad de hamburguesas simples que fueron consumidas: "; 
+                cin>>hs; 
+                if (hs >= 0)
+                {
+                    cout<<"Por favor, ingrese la cantidad de hamburguesas con queso que fueron consumidas: ";
+                    cin>>hq; 
+                    if (hq >= 0)
+                    {
+                        cout<<"Por favor, ingrese la cantidad de papas fritas que fueron consumidas: ";
+                        cin>>pf;
+                        if (pf >= 0)
+                        {
+                            cout<<"Por favor, ingrese la cantidad de gaseosas que fueron consumidas: ";
+                            cin>>g;
+                            if (g >= 0)
+                            {
+                               cout<<"La cantidad total de consumo es: "<<hs<< " Hamburguesas Simples, "<<hq<<" Hamburguesas con Queso, "<<pf<<" Papas Fritas y "<<g<< " Gaseosas."<<endl;
+                               total=(3.00*hs+ 5.00*hq+ 2.00*pf+ 2.50*g);
+                               cout<<"La cantidad total a pagar es Bs.: "<<total<<endl;
+                            }
+                            else
+                            cout<<"Error. Por favor, ingresar los datos de manera correcta nuevamente.";
+                        }
+                        else
+                        cout<<"Error. Por favor, ingresar los datos de manera correcta nuevamente.";
+                    }
+                    else 
+                    cout<<"Error. Por favor, ingresar los datos de manera correcta nuevamente.";
+                }
+                else 
+                cout<<"Error. Por favor, ingresar los datos de manera correcta nuevamente.";
+                break;
+            case 3:
+                cout<<"Ingrese un numero: ";
+                cin>>n;
+                
+                if (n<1){
+                    cout<<"Ingrese un numero mayor a 1"<<endl;
+                }
+                else {
+                    while (contador<=n){
+                        suma += contador;
+                        contador += 2;
+                    }
+                    cout<<"La suma de los impares es: "<<suma<<endl;
+                }
+                
+                break;
+            case 0: cout<<"Salir"<<endl;
+                break;
+            default: cout<<"Opcion invalida"<<endl;
+        }
+    } while (opcion != 0);
+        
+    
+    
+    return 0;
+}
