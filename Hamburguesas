@@ -22,7 +22,7 @@ int main()
                 if (g >= 0)
                 {
                    cout<<"La cantidad total de consumo es: "<<hs<< " Hamburguesas Simples, "<<hq<<" Hamburguesas con Queso, "<<pf<<" Papas Fritas y "<<g<< " Gaseosas."<<endl;
-                   total=(((3.00)(hs))+((5.00)(hq))+((2.00)(pf))+((2.50)(g)));
+                   total=(3.00*hs+ 5.00*hq+ 2.00*pf+ 2.50*g);
                    cout<<"La cantidad total a pagar es Bs.: "<<total;
                 }
                 else
