@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    float x1,x2,y1,y2,d;
+    
+    cout<<"Por favor escriba las coordenadas"<<endl;
+    cout<<"La primera coordenada x: "<<endl;
+    cin>>x1;
+    cout<<"La primera coordenada y: "<<endl;
+    cin>>y1;
+    cout<<"Tu primera coordenada es: "<<"("<<x1<<","<<y1<<")"<<endl;
+    cout<<"La segunda coordenada x: "<<endl;
+    cin>>x2;
+    cout<<"La segunda coordenada y: "<<endl;
+    cin>>y2;
+    cout<<"Tu segunda coordenada es: "<<"("<<x2<<","<<y2<<")"<<endl;
+
+    
+    d=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
+    
+    cout<<"La distancia entre los dos puntos es: "<<d<<endl;
+    
+    return 0;
+}
