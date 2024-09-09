@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double gasolina,diesel,etanol,ingresos;
+    
+    cout<<"Ingrese la cantidad de litros de gasolina vendidos: "<<endl;
+    cin>>gasolina;
+    cout<<"Ingrese la cantidad de litros de diesel vendidos: "<<endl;
+    cin>>diesel;
+    cout<<"Ingrese la cantidad de litros de etanol vendidos: "<<endl;
+    cin>>etanol;
+    
+    ingresos=(gasolina*3.50)+(diesel*4)+(etanol*2.50);
+    
+    cout<<"El total de ingresos del dia fue: "<<endl;
+    cout<<ingresos<<" Bs.";
+    
+    
+    return 0;
+}
