@@ -1,0 +1,99 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int contador=1,suma=0,promedio_semana,inferior=0,mayor=0,igual=0,productos,a,b,c,d,e,f,g;
+    
+    cout<<"Ingrese la cantidad de productos vendidos todos los dias de la semana"<<endl;
+    
+    do{
+        do{
+            cout<<"Ingrese la cantidad de productos vendidos: "<<endl;
+            cin>>productos;
+        }   while (productos<0);
+        
+    suma += productos;
+    if (contador==1)
+    a=productos;
+    if (contador==2)
+    b=productos;
+    if (contador==3)
+    c=productos;
+    if (contador==4)
+    d=productos;
+    if (contador==5)
+    e=productos;
+    if (contador==6)
+    f=productos;
+    if (contador==7)
+    g=productos;
+    contador++;
+    
+    
+    
+    }while (contador<=7);
+    
+    promedio_semana=suma/7;
+    
+    cout<<"El promedio de los prouctos vendidos durante la semana es: "<<promedio_semana<<endl;
+    
+    if(a<promedio_semana)
+    inferior ++;
+    if(a>promedio_semana)
+    mayor ++;
+    if(a==promedio_semana)
+    igual ++;
+    
+    if(b<promedio_semana)
+    inferior ++;
+    if(b>promedio_semana)
+    mayor ++;
+    if(b==promedio_semana)
+    igual ++;
+    
+    if(c<promedio_semana)
+    inferior ++;
+    if(c>promedio_semana)
+    mayor ++;
+    if(c==promedio_semana)
+    igual ++;
+    
+    if(d<promedio_semana)
+    inferior ++;
+    if(d>promedio_semana)
+    mayor ++;
+    if(d==promedio_semana)
+    igual ++;
+    
+    if(e<promedio_semana)
+    inferior ++;
+    if(e>promedio_semana)
+    mayor ++;
+    if(e==promedio_semana)
+    igual++;
+    
+    if(f<promedio_semana)
+    inferior ++;
+    if(f>promedio_semana)
+    mayor ++;
+    if(f==promedio_semana)
+    igual ++;
+    
+    if(g<promedio_semana)
+    inferior ++;
+    if(g>promedio_semana)
+    mayor ++;
+    if(g==promedio_semana)
+    igual ++;
+    
+    cout<<"El numero de dias inferiores al promedio semanal es: "<<inferior<<endl;
+    cout<<"El numero de dias mayores al promedio semanal es: "<<mayor<<endl;
+    cout<<"El numero de dias iguales al promedio semanal es: "<<igual;
+
+    
+
+    
+    return 0;
+}
