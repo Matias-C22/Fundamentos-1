@@ -1,0 +1,84 @@
+//Autor: Matias Castellanos
+//Fecha: 30/09/2024
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+float areacuadrado(float l);
+bool puedevotar(int e);
+bool esPalindromo(string palabra);
+
+int main()
+{
+    float area, lado;
+    int opcion, edad;
+    string lapalabra;
+
+    do {
+        cout << "MENU" << endl;
+        cout << "====" << endl;
+        cout << "1. Area de un area de un cuadrado" << endl;
+        cout << "2. Puede votar" << endl;
+        cout << "3. Palindromo" << endl;
+        cout << "0. Salir" << endl;
+        cout << "ingrese la opcion que desea: " << endl;
+        cin >> opcion;
+        switch (opcion) {
+        case 1:
+            do{
+                cout << "Ingrese el lado";
+                cin >> lado; 
+                      
+
+            } while (lado <= 0);
+            area = areacuadrado(lado);
+            cout << "El area del cuadrado es: " << area << endl;
+            break;
+        case 2:
+            cout << "Ingrese su edad: ";
+            cin >> edad;
+            if (puedevotar(edad))
+                cout << "Puede votar" << endl;
+            else
+                cout << "No puede votar" << endl;
+
+            break;
+        case 3:
+            cout << "Ingrese la palabra: " << endl;
+            getline(cin, lapalabra);
+            if (esPalindromo(lapalabra))
+                cout << "Es palindromo" << endl;
+            else
+                cout << "No es palindromo" << endl;
+
+            break;
+
+        case 0: cout << "Salir" << endl;
+            break;
+        default: cout << "Opcion invalida" << endl;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+float areacuadrado(float l) {
+    float a = l * l;
+    return a;
+}
+bool puedevotar(int e) {
+    if (e >= 18)
+        return true;
+    else
+        return false;
+}
+bool esPalindromo(string palabra) {
+    for (int i = 0; i < palabra.length() / 2; i++) {
+        if (palabra.at(i) != palabra.at(palabra.length() - 1 - i))
+            return false;
+    }
+    return true;
+}
