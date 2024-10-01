@@ -26,10 +26,13 @@ int main()
         case 1:
             do{
                 cout << "Ingrese el lado: ";
-                cin >> lado; 
+                cin >> lado;
+                if(lado<=0){
+                    cout<<"Ingrese un numero valido"<<endl;
+                }
             } while (lado <= 0);
             area = areacuadrado(lado);
-            cout << "El area del cuadrado es: " << area << endl;
+            cout << "El area del cuadrado es: " << area << " m²"<< endl;
             break;
         case 2:
             cout << "Ingrese su edad: ";
