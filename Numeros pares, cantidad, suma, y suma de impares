@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    long n,c=0,pares,parsum=0,impsum=0;
+    do{
+        cout<<"Ingrese el numero: ";
+        cin>>n;
+    } while(n<=0);
+    
+    
+    while(n>0){
+        pares=n%10;
+        if(pares%2==0){
+            c++;
+            parsum+=pares;
+        }
+        else{
+            impsum+=pares;
+        }
+        n/=10;
+    }
+    cout<<"La cantidad de numeros es: "<<c<<endl;
+    cout<<"La suma de numeros pares es: "<<parsum<<endl;
+    cout<<"La suma de numeros impares es: "<<impsum;
+
+    return 0;
+}
