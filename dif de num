@@ -1,42 +1,42 @@
 #include <iostream>
 #include <string>
-#include <math.h>
 
 using namespace std;
 
-//int diferencia(int d);
+int diferencia(int d);
 
 int main()
 {
-    int num, dif, residuo,num1 , num2,i=1;
+    int num;
     do {
         cout << "Ingrese un numero positivo: ";
         cin >> num;
         if (num <= 0)
             cout << "Por favor ingrese un numero positivo" << endl;
     } while (num <= 0);
-
     
-    string n = to_string(num);
-   
     cout << "La diferencias dentro de el numero son: " << endl;
+    diferencia(num);
+    return 0;
+}
+
+int diferencia(int d) {
+    int dif, residuo,num1 , num2,i=1;
+    string n = to_string(d);
+
     while (i <= n.length() / 2) {
-        residuo = num % 10;
-        num1 = num%(10000-10*i);
+        residuo = d % 10;
+        num1 = n.at(i-1)-'0';
         num2 = residuo;
         dif = num1 - num2;
         if (dif < 0) {
             dif = -dif;
         }
-        
-        cout << dif << " ";
-        num /= 10;
+        cout <<"La diferencia entre "<<num1<<" y "<<num2<<" es "<< dif <<endl;
+        d /= 10;
         i++;
     }
-
+    if(n.length()%2!=0)
+        cout<<n.at((n.length()/2)+0.5)<<" no tiene diferencia";
     return 0;
 }
-
-/*int diferencia(int d) {
-
-}*/
