@@ -1,0 +1,41 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int total_a_pagar(int v);
+
+int main()
+{
+	float num;
+	int pot;
+
+	do {
+		cout << "Por favor ingrese el numero en el mes: ";
+		cin >> num;
+		if (num <= 0)
+			cout << "Ingrese un numero valido " << endl;
+	} while (num <= 0);
+
+	total_a_pagar(num);
+	
+}
+
+int total_a_pagar(int v) {
+	int comision, ventas,total;
+	ventas = v;
+	if (v < 10000) {
+		comision = 0;
+	}
+	if (v >= 10000 && v<=50000) {
+		comision = 5;
+	}
+	if (v > 50000) {
+		comision = 8;
+	}
+
+	total = ventas * (comision / 100);
+
+	cout << "El total a pagar es " << total << " con una comision de " << comision << "%";
+	return 0;
+}
