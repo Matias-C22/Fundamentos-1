@@ -1,0 +1,35 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+float sumaserie(float n, int p);
+
+int main()
+{
+	float num;
+	int pot;
+
+	do {
+		cout << "Por favor ingrese el numero que va a sumar: ";
+		cin >> num;
+		if (num <= 0)
+			cout << "Ingrese un numero valido " << endl;
+	} while (num <= 0);
+	do {
+		cout << "Ingrese hasta que potencia va a incrementar: ";
+		cin >> pot;
+		if (pot <= 0)
+			cout << "Ingrese un numero valido " << endl;
+	} while (pot <= 0);
+
+	cout << "La suma de la serie es: " << sumaserie(num, pot);
+}
+
+float sumaserie(float n, int p) {
+	float suma=0;
+	for (int i = 1; i <= p; i++) {
+		suma += pow(n, i);
+	}
+	return suma;
+}
