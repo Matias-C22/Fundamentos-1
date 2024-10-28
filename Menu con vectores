@@ -1,0 +1,135 @@
+#include <iostream>
+#define max 100
+
+void cargar(int vect[], int n);
+void mostrar(int vect[], int n);
+void burbuja(int vect[], int n);
+void sumar(int vect1[], int vect2[], int vect3[], int n);
+float promedio(int vect[], int n);
+int mayor(int vect[], int n);
+int menor(int vect[], int n);
+void unir(int vect1[], int n, int vect2[], int m, int vect3[], int &tam);
+
+
+using namespace std;
+
+int main() {
+    int n, A[max], B[max], C[max], opcion, m,tam, aux, prom;
+
+    do {
+        cout << "\nMENU" << endl;
+        cout << "1. Cargar Vector" << endl;
+        cout << "2. Mostrar Vector" << endl;
+        cout << "3. Clasificar Vector" << endl;
+        cout << "4. Mayor de un Vector" << endl;
+        cout << "5. Menor de un Vector" << endl;
+        cout << "6. Promedio de un Vector" << endl;
+        cout << "7. Unir Vectores" << endl;
+        cout << "8. Sumar Vectores" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+
+        switch (opcion){
+
+        case 1:
+            cout << "Ingrese la cantidad de elementos: ";
+            cin >> n;
+            cargar(A, n);
+            break;
+        case 2:
+            mostrar(A, n);
+            break;
+        case 3:
+            burbuja(A, n);
+            break;
+        case 4:
+            aux = mayor(A, n);
+            cout << "El mayor del vector es: " << aux << endl;
+            break;
+        case 5:
+            aux = menor(A, n);
+            cout << "El menor del vector es: " << aux << endl;
+        case 6:
+            prom = promedio(A, n);
+            cout << "El promedio de los elementos del vector es: " << prom << endl;
+            break;
+        case 7:
+            cout << "Ingrese la cantidad de elementos: " << endl;
+            cin >> m;
+            cargar(B, m);
+            unir(A, n, B, m, C, tam);
+            break;
+        case 8:
+            sumar(A, B, C, m);
+            break;
+        case 0:
+            cout << "salir" << endl;
+            break;
+
+        default:
+            cout << "Ingrese una opcion valida" << endl;
+            break;
+
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+void cargar(int vect[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Ingresa vec[" << i << "]: ";
+        cin >> vect[i];
+    }
+}
+void mostrar(int vect[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "El vector en la posicion " << i << " es " << vect[i] << endl;
+    }
+}
+void burbuja(int vect[], int n) {
+    int aux;
+    for (int i = 0; i <= max - 1; i++) {
+        for (int j = i + 1; j <= max; j++) {
+            if (vect[j] < vect[i]) {
+                aux = vect[i];
+                vect[i] = vect[j];
+                vect[j] = aux;
+            }
+        }
+    }
+}
+void sumar(int vect1[], int vect2[], int vect3[], int n) {
+    cout << "Ingresa el segundo vector: ";
+    cargar(vect2, n);
+    for (int i = 0; i < n; i++)
+        vect3[i] = vect1[i] + vect2[i];
+
+}
+float promedio(int vect[], int n) {
+    int suma = 0;
+    for (int i = 0; i < n; i++)
+        suma = vect[i] + suma;
+    return suma / n;
+}
+int mayor(int vect[], int n) {
+    int may = vect[0];
+    for (int i = 0; i < n; i++) {
+        if (may < vect[i])
+            may = vect[i];
+    }
+    return may;
+}
+int menor(int vect[], int n) {
+    int me = vect[0];
+    for (int i = 1; i < n; i++) {
+        if (me > vect[i])
+            me = vect[i];
+    }
+    return me;
+}
+void unir(int vect1[], int n, int vect2[], int m, int vect3[], int& tam) {
+
+}
