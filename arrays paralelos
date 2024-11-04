@@ -1,0 +1,65 @@
+// arrays paralelos.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include <string>
+#define MAX 100
+
+using namespace std;
+
+void cargar(int vec[], string nombre[], int n);
+void mostrar(int vec[], string nombre[], int n);
+void burbuja(int vec[], string nombre[], int n);
+
+int main()
+{
+    int n, vec[MAX];
+    string nombre[MAX];
+
+    do {
+        cout << "Ingrese cuantos numeros quiere obtener: ";
+        cin >> n;
+    } while (n < 1 || n>MAX);
+
+    cargar(vec, nombre, n);
+    burbuja(vec, nombre, n);
+    mostrar(vec, nombre, n);
+
+    return 0;
+}
+
+void cargar(int vec[], string nombre[], int n) {
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese su nombre: ";
+        cin.ignore();
+        getline(cin, nombre[i]);
+        cout << "Ingrese su numero: ";
+        cin >> vec[i];
+    }
+}
+
+void mostrar(int vec[], string nombre[], int n) {
+    cout << "NOMBRE"<<" \t \t"<<"TELEFONO" << endl;
+    for (int i = 0; i < n; i++) {
+        cout << nombre[i] <<" \t " << vec[i] << endl;
+    }
+}
+
+
+void burbuja(int vec[], string nombre[], int n) {
+    for (int i = 0; i < n - 1; i++) 
+        for (int j = i + 1; j < n; j++) {
+            if (nombre[i] > nombre[j]) {
+                string orden = nombre[i];
+                nombre[i] = nombre[j];
+                nombre[j] = orden;
+
+                int aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+
+        }
+    
+}
