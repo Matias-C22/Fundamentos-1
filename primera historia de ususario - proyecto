@@ -1,0 +1,242 @@
+#-- coding: iso-8859-15 --
+
+from tkinter import *
+from tkinter import messagebox
+#from PIL import Image, ImageTk
+
+class memb_pagada:
+    def _init_(self):
+        self.window = Tk()
+        self.window.title("Circlify")
+        self.window.iconbitmap("circlify.ico")
+        self.window.geometry("1000x800")
+
+        fondo = "black"
+
+        self.ventana_memb_pago(fondo)
+        self.window.mainloop()
+        
+    def ventana_memb_pago(self, fondo):
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
+        #self.bg=Image.open("back.png")
+        #self.render = ImageTk.PhotoImage(self.bg)
+        my_canvas=Canvas(self.window,width=800,height=400)
+        my_canvas.pack(fill="both",expand=True)
+        #my_canvas.create_image(0,0, image=self.render, anchor="nw")
+
+        my_canvas.create_text(700,175, text="¡Bienvenido al Plan de Membresía Premium!",
+                              font=("Helvetica",25,"bold"),fill="white")
+        texto_text="""Transforma tu experiencia con acceso ilimitado a un mundo de beneficios.
+                                    Paga menos y ahorra mas"""
+        my_canvas.create_text(700,225, text=texto_text,
+                              font=("Helvetica",15,"bold"),fill="white")
+
+        opciones_text="""
+        1. Acceso Exclusivo a Contenido Premium
+        2. Descuentos Personalizados
+        3. Acceso Anticipado a Nuevos Lanzamientos
+        4. Soporte Prioritario 24/7
+        5. Consultoría Personalizada
+        6. Eventos y Webinars Exclusivos
+        7. Beneficios de Fidelidad
+        8. Acceso a Ofertas Especiales de Colaboradores
+        9. Regalos de Bienvenida de Lujo
+        10. Eventos Privados para Miembros Premium
+        11. Recompensas por Lealtad
+        12. Acceso a Funcionalidades Avanzadas
+        13. Descuentos en Tiendas Asociadas
+        14. Alertas y Notificaciones Personalizadas
+        15. Membresía Extendida
+        """
+        my_canvas.create_text(700,400, text=opciones_text,
+                              font=("Helvetica",12,"bold"),fill="white")
+
+        self.boton_memb = Button(self.window,
+                                text="Obtener membresia",
+                                width=16,
+                                font=("Arial", 12),
+                                command=lambda: self.metodos_pago(fondo))
+        vent_memb=my_canvas.create_window(700,600,anchor="s",window=self.boton_memb)
+
+        self.boton_salir = Button(self.window,
+                                text="salir",
+                                width=16,
+                                font=("Arial", 12),
+                                command=lambda: self.salir_pago(fondo))
+        vent_salir=my_canvas.create_window(700,650,anchor="s",window=self.boton_salir)
+
+    def salir_pago(self,fondo):
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
+    def metodos_pago(self, fondo):
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
+
+        self.marco = Frame(self.window)
+        self.marco.config(bg=fondo)
+        self.marco.pack(fill="both", expand=True)
+
+        self.titulo = Label(self.marco,
+                            text="Subscripción a la membresia",
+                            font=("Calisto MT", 20, "bold"),
+                            bg=fondo,
+                            fg="white")
+        self.titulo.pack(side="top", pady=40,fill="both")
+
+        #self.img=Image.open("circ.png")
+        #self.photo = ImageTk.PhotoImage(self.img)
+        my_canvas=Canvas(self.window,width=600,height=600,bg=fondo,bd=0)
+        my_canvas.pack(fill="both",expand=True)
+        #my_canvas.create_image(100,100, image=self.photo, anchor="nw")
+
+        my_canvas.create_text(900,150, text="Escoja un metodo de pago",
+                              font=("Helvetica",15,"bold"),fill="white")
+        self.boton_tarj = Button(self.window,
+                                text="Tarjeta debito/credito",
+                                width=30,
+                                font=("Arial", 12),
+                                bg="white",
+                                fg="black",
+                                bd=10,command= lambda: self.pago_targeta(fondo))
+        vent_boton=my_canvas.create_window(900,250,anchor="s",window=self.boton_tarj)
+        self.boton_trans = Button(self.window,
+                                text="Transferencia bancaria",
+                                width=30,
+                                font=("Arial", 12),
+                                bg="white",
+                                fg="black",
+                                bd=10, command= lambda: self.pago_transferencia(fondo))
+        vent_boton2=my_canvas.create_window(900,320,anchor="s",window=self.boton_trans)
+
+        self.boton_volver = Button(self.window,
+                                text="Volver",
+                                width=10,
+                                font=("Arial", 12),
+                                bg="white",
+                                fg="black",
+                                bd=10,command= lambda: self.ventana_memb_pago(fondo))
+        vent_boton3=my_canvas.create_window(1240,520,anchor="s",window=self.boton_volver)    
+        
+    def pago_targeta(self, fondo):
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
+        self.marco2 = Frame(self.window)
+        self.marco2.config(bg=fondo)
+        self.marco2.pack(fill="both", expand=True)
+
+        self.titulo = Label(self.marco2,
+                            text="Datos para pago con targeta",
+                            font=("Calisto MT", 20, "bold"),
+                            bg=fondo,
+                            fg="white")
+        self.titulo.pack(side="top", pady=40,fill="both")
+
+        self.num_targeta=Label(self.marco2, text="Número de tarjeta:", font=("Arial", 12),
+             bg="black",fg="white").pack(pady=5)
+        entry_numero_tarjeta = Entry(self.marco2, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_numero_tarjeta.pack(pady=5)
+
+        self.nom_targeta=Label(self.marco2, text="Nombre del titular:", font=("Arial", 12),
+             bg="black",fg="white").pack(pady=5)
+        entry_nombre_tarjeta = Entry(self.marco2, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_nombre_tarjeta.pack(pady=5)
+
+        self.cvv_targeta=Label(self.marco2, text="Cvv:", font=("Arial", 12),
+             bg="black",fg="white").pack(pady=5)
+        entry_cvv_tarjeta = Entry(self.marco2, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_cvv_tarjeta.pack(pady=5)
+
+        self.fecha_targeta=Label(self.marco2, text="Fecha de vencimiento (MM/AA):",
+                              font=("Arial", 12),
+             bg="black",fg="white").pack(pady=5)
+        entry_fecha_tarjeta = Entry(self.marco2, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_fecha_tarjeta.pack(pady=5,padx=10)
+
+        self.boton_pago = Button(self.marco2,
+                                    text="Pagar",
+                                    width=10,
+                                    font=("Arial", 12),
+                                    bg="white",
+                                    fg="black",
+                                    bd=10,command= lambda: self.confirmar_pago())
+        self.boton_pago.pack(pady=10)
+
+        self.boton_volver_tarj = Button(self.marco2,
+                                    text="Volver",
+                                    width=10,
+                                    font=("Arial", 12),
+                                    bg="white",
+                                    fg="black",
+                                    bd=10,command= lambda: self.metodos_pago(fondo))
+        self.boton_volver_tarj.pack(pady=10)
+
+
+    def pago_transferencia(self, fondo):
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
+        self.marco3 = Frame(self.window)
+        self.marco3.config(bg=fondo)
+        self.marco3.pack(fill="both", expand=True)
+
+        self.titulo = Label(self.marco3,
+                            text="Datos para pago con targeta",
+                            font=("Calisto MT", 20, "bold"),
+                            bg=fondo,
+                            fg="white")
+        self.titulo.pack(side="top", pady=40,fill="both")
+
+        self.num_targeta=Label(self.marco3, text="Número de cuenta bancaria:", font=("Arial", 12),
+             bg="black",fg="white").pack(pady=5)
+        entry_numero_tarjeta = Entry(self.marco3, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_numero_tarjeta.pack(pady=5)
+
+        self.nom_transferencia=Label(self.marco3, text="Nombre del titular de la cuenta:",
+                                    font=("Arial", 12),bg="black",fg="white").pack(pady=5)
+        entry_nombre_transferencia = Entry(self.marco3, font=("Arial", 12),
+                             relief="flat", highlightbackground="gray",highlightthickness=3,
+                             highlightcolor="red",bd=4)
+        entry_nombre_transferencia.pack(pady=5)
+
+        self.boton_pago = Button(self.marco3,
+                                    text="Pagar",
+                                    width=10,
+                                    font=("Arial", 12),
+                                    bg="white",
+                                    fg="black",
+                                    bd=10,command= lambda: self.confirmar_pago())
+        self.boton_pago.pack(pady=10)
+
+        self.boton_volver = Button(self.marco3,
+                                    text="Volver",
+                                    width=10,
+                                    font=("Arial", 12),
+                                    bg="white",
+                                    fg="black",
+                                    bd=10,command= lambda: self.metodos_pago(fondo))
+        self.boton_volver.pack(pady=10)
+
+    def confirmar_pago(self):
+        messagebox.showinfo("Pago realizado", "¡El pago fue realizado con éxito!")
+        self.window.destroy()
+
+        
+
+if __name__ == "__main__":
+    pago = memb_pagada()
+    pago.window.mainloop()
